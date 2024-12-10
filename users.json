@@ -1,15 +1,15 @@
 {
     "users": [
-      {
-        "username": "parafuls",
-        "approved": "N"
-      }
+        {
+            "username": "parafuls",
+            "approved": "N"
+        }
+    ],
     "blacklists": [
-      {
-        "username": "Player1",
-        "reason": "N/A",
-        "time": "perm"
-      }
+        {
+            "username": "Player1",
+            "reason": "N/A",
+            "time": "perm"
+        }
     ]
-    ]
-  }
+}
