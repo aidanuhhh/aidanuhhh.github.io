@@ -2,7 +2,9 @@
     "users": [
       {
         "username": "parafuls",
-        "balance": 1000
+        "customrank": "Test",
+        "customicon": "id",
+        "approved": Y
       }
     ]
   }
