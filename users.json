@@ -1,13 +1,13 @@
 {
     "users": [
         {
-            "username": "parafuls",
-            "approved": "N"
+            "username": "Player1",
+            "approved": "Y"
         }
     ],
     "blacklists": [
         {
-            "username": "parafuls",
+            "username": "Player1",
             "reason": "Api to Roblox",
             "time": "1d"
         }
