@@ -7,9 +7,9 @@
     ],
     "blacklists": [
         {
-            "username": "Player1",
+            "username": "parafuls",
             "reason": "Api to Roblox",
-            "time": "1d"
+            "time": "1h"
         }
     ]
 }
