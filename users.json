@@ -2,9 +2,7 @@
     "users": [
       {
         "username": "parafuls",
-        "customrank": "Test",
-        "customicon": "rbxassetid://131592547706294",
-        "approved": "Y"
+        "approved": "N"
       }
     ]
   }
