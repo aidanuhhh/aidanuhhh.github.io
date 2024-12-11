@@ -7,8 +7,8 @@
     ],
     "blacklists": [
         {
-            "username": "Ico_xo",
-            "reason": "API Ban from parafuls",
+            "username": "Player1",
+            "reason": "API Ban",
             "time": "perm"
         }
     ]
