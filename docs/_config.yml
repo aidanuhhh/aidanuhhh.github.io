@@ -1,0 +1,7 @@
+title: AussieArmy Data
+theme: jekyll-theme-minimal
+plugins:
+  - jekyll-feed
+cors: 
+  allowed_origins: '*'
+  allowed_methods: ['GET']

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AussieArmy Data Dashboard</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 20px auto; padding: 20px; }
+        .section { margin-bottom: 30px; border: 1px solid #ddd; padding: 15px; border-radius: 5px; }
+        .refresh-btn { padding: 8px 15px; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        .refresh-btn:hover { background: #0056b3; }
+        .data-box { background: #f8f9fa; padding: 10px; margin-top: 10px; border-radius: 4px; }
+        .error { color: #dc3545; }
+    </style>
+</head>
+<body>
+    <h1>AussieArmy Data Monitor</h1>
+    
+    <div class="section">
+        <h2>Live Data Status</h2>
+        <button class="refresh-btn" onclick="loadData()">Refresh Data</button>
+        <div id="status" class="data-box">Loading...</div>
+    </div>
+
+    <div class="section">
+        <h3>Approved Users (<span id="userCount">0</span>)</h3>
+        <div id="users" class="data-box"></div>
+    </div>
+
+    <div class="section">
+        <h3>Blacklisted Users (<span id="blacklistCount">0</span>)</h3>
+        <div id="blacklists" class="data-box"></div>
+    </div>
+
+    <script>
+        const DATA_URL = 'https://aidanuhhh.github.io/docs/data.json';
+        
+        async function loadData() {
+            try {
+                document.getElementById('status').innerHTML = 'Fetching data...';
+                
+                const response = await fetch(DATA_URL + '?t=' + Date.now());
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                
+                const data = await response.json();
+                
+                // Update counts
+                document.getElementById('userCount').textContent = data.users?.length || 0;
+                document.getElementById('blacklistCount').textContent = data.blacklists?.length || 0;
+                
+                // Display users
+                document.getElementById('users').innerHTML = data.users
+                    ?.map(user => `
+                        <div>
+                            ${user.username} (${user.userId}) - 
+                            <strong>${user.approved ? '✅ Approved' : '❌ Denied'}</strong>
+                        </div>
+                    `).join('') || 'No users found';
+                
+                // Display blacklists
+                document.getElementById('blacklists').innerHTML = data.blacklists
+                    ?.map(entry => `
+                        <div>
+                            ${entry.username} (${entry.userId}) - 
+                            Reason: ${entry.reason || 'None'} 
+                            ${entry.expires ? `(Expires: ${entry.expires})` : ''}
+                        </div>
+                    `).join('') || 'No blacklisted users';
+                
+                document.getElementById('status').innerHTML = 
+                    `✅ Data loaded successfully at ${new Date().toLocaleTimeString()}`;
+                    
+            } catch (error) {
+                document.getElementById('status').innerHTML = 
+                    `<span class="error">❌ Error: ${error.message}</span>`;
+                console.error('Data load failed:', error);
+            }
+        }
+
+        // Initial load + auto-refresh every 30s
+        loadData();
+        setInterval(loadData, 30000);
+    </script>
+</body>
+</html>
