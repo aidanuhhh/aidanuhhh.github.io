@@ -1,8 +1,8 @@
 {
     "users": [
-        {"userId": 123, "username": "plr", "approved": true}
+        {"userId": 2034296589, "username": "parafuls", "approved": true}
     ],
     "blacklists": [
-        {"userId": 2034296589, "username": "parafuls", "reason": "Cheating"}
+        {"userId": 123, "username": "123", "reason": "123"}
     ]
 }
