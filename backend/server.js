@@ -31,3 +31,4 @@ app.listen(3000, () => {
 // Add to server.js
 const { init } = require('@sentry/node');
 init({ dsn: process.env.SENTRY_DSN });
+
