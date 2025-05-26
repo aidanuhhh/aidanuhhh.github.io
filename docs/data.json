@@ -1,8 +1,0 @@
-{
-    "users": [
-        {"userId": 2034296589, "username": "parafuls", "approved": true}
-    ],
-    "blacklists": [
-        {"userId": 123, "username": "123", "reason": "123"}
-    ]
-}

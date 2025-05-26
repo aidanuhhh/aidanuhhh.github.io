@@ -1,0 +1,17 @@
+name: Deploy to Back4App
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Dependencies
+        run: npm ci
+      - name: Run Tests
+        run: npm test
+      - name: Deploy to Back4App
+        uses: back4app/containers-deploy-action@v1
+        with:
+          app-id: ${{ secrets.BACK4APP_APP_ID }}
+          master-key: ${{ secrets.BACK4APP_MASTER_KEY }}
