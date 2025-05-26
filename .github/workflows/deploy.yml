@@ -10,8 +10,8 @@ jobs:
         run: npm ci
       - name: Run Tests
         run: npm test
-      - name: Deploy to Back4App
-        uses: back4app/containers-deploy-action@v1
+      - name: back4app Deploy Action
+        uses: heinrichcoetzee/back4app-deploy-action@v4
         with:
           app-id: ${{ secrets.BACK4APP_APP_ID }}
           master-key: ${{ secrets.BACK4APP_MASTER_KEY }}
